@@ -2,10 +2,10 @@ var bolded = false
 
 $(window).load(function() {
 	langSelect($('#language').find(":selected").val())
-/*	boldKWIC()*/
+	boldKWIC()
 });
 
-/*function boldKWIC() {
+function boldKWIC() {
 	var table = document.getElementById("latin-pos-table");
 	var curword = ""
 	for (var i = 0, row; row = table.rows[i]; i++) {
@@ -22,7 +22,7 @@ $(window).load(function() {
 			}
 		}
 	}
-}*/
+}
 
 
 function alphaClick(event) {
@@ -32,16 +32,24 @@ function alphaClick(event) {
 
 function findAndScroll(letter) {
 	var table = document.getElementById("latin-pos-table");
+	var scrollTop = window.scrollY;
 	for (var r = 0, row; row = table.rows[r]; r++) {
-		if($(row).attr('class').includes("level0") && 
-			$(row).find("b").html()[0] == letter) {
-			offset = row.getBoundingClientRect().top - 100;
-			window.scrollTo({
-				top: offset
-			});
-			return;
+		if($(row).attr('class').includes("level0")) {
+			const textContent = $(row).find("b").text().trim();
+			const normalizedText = normalizeText(textContent);
+			if (normalizedText[0] == letter) {
+			    offset = row.getBoundingClientRect().top + scrollTop - 100;
+			    window.scrollTo({
+			    	top: offset
+			    });
+			    return;
+	        }
 		}
 	}
+}
+
+function normalizeText(text) {
+    return text.normalize('NFD');
 }
 
 function posFilter() {
