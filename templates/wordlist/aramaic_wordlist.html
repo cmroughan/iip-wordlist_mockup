@@ -28,7 +28,7 @@
 
     <div class="floating-menu">
     
-    <p align="center" id="atoz"> [
+    <p align="center" id="atoz" dir="rtl"> [
         {% for word in words %}
             {% ifchanged word.lemma.0|removeGreekAccents %} 
                 {% if not forloop.first %}|{% endif %}
