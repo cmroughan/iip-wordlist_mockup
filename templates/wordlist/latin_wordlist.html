@@ -41,6 +41,12 @@
         <h5> Part of Speech Filter:</h5>
         <div class="form-group">
             <div class="form-check">
+                <input class="form-check-input pos-filter" type="checkbox" value="PROPN" id="propnouncheck">
+                <label class="form-check-label" for="propnouncheck">
+                    Proper noun
+                </label>
+            </div>
+            <div class="form-check">
                 <input class="form-check-input pos-filter" type="checkbox" value="N" id="nouncheck">
                 <label class="form-check-label" for="nouncheck">
                     Noun
@@ -96,7 +102,7 @@ This wordlist provides links to the Perseus Latin dictionary, indicated with the
                 <br>
                 <a href="http://www.perseus.tufts.edu/hopper/resolveform?type=exact&lookup={{word.lemma}}&lang=la"
                 target="_blank"><img class="dictionary-icon" src='{% static "wordlist/dictionary.png" %}'/></a>
-                <img class="tree-icon" src='{% static "wordlist/tree-icon.png" %}' onclick="treeClick('{{word.lemma}}/{{word.pos}}', '{{forloop.counter}}')" />
+                <img class="tree-icon" src='{% static "wordlist/tree-icon.png" %}' onclick="treeClick('{{word.lemma|lower}}/{{word.pos}}', '{{forloop.counter}}')" />
                 </td>
             </tr>
             {% for k, v in word.forms.items %}
