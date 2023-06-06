@@ -94,7 +94,7 @@ This wordlist provides links to the Perseus Greek dictionary, indicated with the
                 id="buttog{{forloop.counter}}" onclick="collapseToggle(this)">+</button>
                 <b>{{word.lemma}}</b> {{word.pos}} ({{word.count}})
                 <br>
-                <a href="http://www.perseus.tufts.edu/hopper/resolveform?type=exact&lookup={{word.lemma}}&lang=la"
+                <a href="https://www.perseus.tufts.edu/hopper/morph?l={{word.lemma}}&la=greek"
                 target="_blank"><img class="dictionary-icon" src='{% static "wordlist/dictionary.png" %}'/></a>
                 <img class="tree-icon" src='{% static "wordlist/tree-icon.png" %}' onclick="treeClick('{{word.lemma}}/{{word.pos}}', '{{forloop.counter}}')" />
                 </td>
