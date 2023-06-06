@@ -17,7 +17,7 @@ function boldKWIC() {
 					cvar.html(rv[0] + " <strong>" + curword + "</strong> " + rv[1])
 				} else {
 					const rowval = cvar.html()
-					curword = rowval.substr(0, rowval.indexOf(' '));
+					curword = rowval.substr(0, rowval.indexOf(' ')).toLowerCase();
 				}
 			}
 		}
