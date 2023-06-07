@@ -28,13 +28,12 @@
 
     <div class="floating-menu">
     
-    <p align="center" id="atoz"> [
+    <p align="center" id="atoz">
         {% for word in words %}
             {% ifchanged word.lemma.0|lower|removeGreekAccents %} 
                 {% if not forloop.first %}|{% endif %}
             <a class="alphalink" onClick="alphaClick(event)">{{word.lemma.0|lower|removeGreekAccents}}</a>  {% endifchanged %}
         {% endfor %}
-        ]
     </p>
 
     <div id="posfilter">
