@@ -91,6 +91,9 @@
     <br><br>
 This wordlist provides links to the Perseus Latin dictionary, indicated with the dictionary (<img class="sample-icons" src='{% static "wordlist/dictionary.png" %}'/>) icon. In addition, it presents Double Tree KWIC visualizations as another lens into the contexts in which these words appear. To view the Double Tree visualization for any word, click the tree (<img class="sample-icons" src='{% static "wordlist/tree-icon.png" %}'/>) icon.<br><br></p>
 
+</div>
+<div class="container text-left" style="padding-left: 200px;">
+
     <table class="table" id="latin-pos-table">
         {% for word in words %}
             <tr class="level0 pos{{word.2}}">
@@ -113,7 +116,7 @@ This wordlist provides links to the Perseus Latin dictionary, indicated with the
                     {% if not forloop.first %}
                         <tr class="level1 tog{{forloop.parentloop.parentloop.counter}}">
                     {% endif %}
-                    <td class="kwic">{{kwic.0}} 
+                    <td class="kwic" colspan="2">{{kwic.0}} 
                     (<a href="{% url 'inscription_url' kwic.1 %}" target="_blank">{{kwic.1}}</a>)</td>
                     </tr>
                 {% endfor %}
