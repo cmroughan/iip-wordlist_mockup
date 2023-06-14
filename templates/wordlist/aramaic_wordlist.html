@@ -97,7 +97,7 @@ This wordlist provides links to the Comprehensive Aramaic Lexicon, indicated wit
     <table class="table" id="latin-pos-table">
         {% for word in words %}
             <tr class="level0 pos{{word.2}}">
-                <td colspan="2">
+                <td>
                 <button type="button" class="btn btn-primary" 
                 id="buttog{{forloop.counter}}" onclick="collapseToggle(this)">+</button>
                 <b>{{word.lemma}}</b> {{word.pos}} ({{word.count}})
@@ -116,7 +116,7 @@ This wordlist provides links to the Comprehensive Aramaic Lexicon, indicated wit
                     {% if not forloop.first %}
                         <tr class="level1 tog{{forloop.parentloop.parentloop.counter}}">
                     {% endif %}
-                    <td class="kwic" colspan="2">{{kwic.0}} 
+                    <td class="kwic">{{kwic.0.0}} <strong>{{kwic.0.1}}</strong> {{kwic.0.2}} 
                     (<a href="{% url 'inscription_url' kwic.1 %}" target="_blank">{{kwic.1}}</a>)</td>
                     </tr>
                 {% endfor %}
